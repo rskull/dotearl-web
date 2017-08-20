@@ -1,0 +1,13 @@
+@charset 'utf-8';
+
+@import 'normalize.css';
+
+body {
+  height: 100vh;
+  background: #111;
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+}
+
+.flex {
+  display: flex;
+}

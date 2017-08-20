@@ -1,28 +1,38 @@
-var webpack = require('webpack');
-var path = require('path');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var BUILD_DIR = path.resolve(__dirname, 'public');
-var APP_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, 'public');
+const APP_DIR = path.resolve(__dirname, 'src');
 
+const extractCSS = new ExtractTextPlugin('style.css');
 
-var config = {
-  entry: APP_DIR + '/index.js',
+const config = {
+  entry: [APP_DIR + '/index.js', APP_DIR + '/style.css'],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
-  resolve: {
-    extensions: ['.js']
-  },
   module: {
-    loaders: [
+    rules: [
       { 
         test: /\.js$/, 
         exclude: /node_modules/, 
         loader: "babel-loader"
+      },
+      {
+        test: /\.css$/,
+        use: extractCSS.extract([ 'css-loader', 'postcss-loader' ])
       }
     ]
-  }
+  },
+  devtool: 'source-map',
+  devServer: {
+    contentBase: 'public',
+    port: 8080,
+  },
+  plugins: [
+    extractCSS
+  ],
 };
 
 module.exports = config;
