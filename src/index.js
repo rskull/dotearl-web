@@ -4,8 +4,10 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import TitleBar from './components/TitleBar'
+import VimContainer from './components/VimContainer'
 import FileExplorer from './components/FileExplorer'
 import CommandLine from './components/CommandLine'
+import StatusBar from './components/StatusBar'
 
 import Home from './pages/Home'
 import Works from './pages/Works'
@@ -25,32 +27,6 @@ const MainContainer = styled.div`
   border: 1px solid #555;
   border-radius: 5px;
   overflow: hidden;
-`
-
-const VimContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  border: 3px solid #000;
-  overflow: hidden;
-`
-
-const StatusBar = styled.div`
-  display: flex;
-  flex-direction: row;
-  background: ${props => props.active ? '#444' : '#6C6C6C'};
-  width: ${props => props.width}px;
-  height: 13px;
-  padding: 2px;
-  font-size: 12px;
-
-  div {
-    flex: 1;
-
-    &:nth-child(2) {
-      text-align: right;
-      padding-right: 5px;
-    }
-  }
 `
 
 class App extends Component {
