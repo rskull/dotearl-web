@@ -4,7 +4,8 @@
 
 body {
   height: 100vh;
-  background: #111;
+  background: url(/img/bg.jpg) bottom;
+  background-size: contain;
   font-family: monaco, Consolas, "Lucida Console", monospace;
 }
 
