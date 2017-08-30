@@ -10,29 +10,4 @@ const CommandLineWrapper = styled.div`
   color: #d0d0d0;
 `
 
-export default class CommandLine extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      text: ''
-    }
-  }
-
-  handleKeyDown(e) {
-    console.log('xxx', keycode(e))
-    if (keycode(e) === 'j') {
-      console.log('up')
-    }
-  }
-
-  render() {
-    return (
-      <CommandLineWrapper
-        onKeyDown={this.handleKeyDown}
-      >
-        {this.state.text}
-      </CommandLineWrapper>
-    )
-  }
-}
+export default CommandLineWrapper

@@ -23,7 +23,7 @@ const MainContainer = styled.div`
   margin: auto;
   width: 1200px;
   height: 700px;
-  background: rgba(38, 38, 38, 0.88);
+  background: rgba(38, 38, 38, 0.92);
   border: 1px solid #555;
   border-radius: 5px;
   overflow: hidden;
