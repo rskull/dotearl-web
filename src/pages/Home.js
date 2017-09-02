@@ -4,11 +4,8 @@ import LineNumbers from '../components/LineNumbers'
 
 const Home = () => (
   <div className="flex">
-    <LineNumbers numberLines={20} />
+    <LineNumbers numberLines={16} />
     <VimContents>
-      <p className="syntax-comment">/**</p>
-      <p className="syntax-comment"> * Home</p>
-      <p className="syntax-comment"> */</p>
       <p></p>
       <h2># Home</h2>
       <p></p>

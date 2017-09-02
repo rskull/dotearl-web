@@ -4,11 +4,8 @@ import LineNumbers from '../components/LineNumbers'
 
 const Contact = () => (
   <div className="flex">
-    <LineNumbers numberLines={23} />
+    <LineNumbers numberLines={19} />
     <VimContents>
-      <p className="syntax-comment">/**</p>
-      <p className="syntax-comment"> * Contact</p>
-      <p className="syntax-comment"> */</p>
       <p></p>
       <h2># Contact</h2>
       <p></p>
