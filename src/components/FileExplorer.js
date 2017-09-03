@@ -50,18 +50,19 @@ const FileExplorerWrapper = styled.div`
     &:before {
       display: inline-block;
       color: #d65d1a;
-      content: '▲'; 
+      content: '★'; 
       margin-right: 5px;
-      transition: transform .1s linear;
-      transform: scale(0.5) rotate(90deg);
+      transition: transform .3s linear;
+      transform: scale(0.7);
     }
 
     &.active {
       background: #303030;
 
       &:before {
-        transition: transform .1s linear;
-        transform: scale(0.5) rotate(180deg);
+        content: '☆';
+        transition: transform .3s linear;
+        transform: scale(0.7) rotate(180deg);
       }
     }
   }
@@ -74,8 +75,6 @@ class FileExplorer extends Component {
     this.state = {
       index: 0
     }
-
-    this.files = ['home', 'works', 'skill', 'contact']
   }
 
   handleClick(i) {
@@ -83,6 +82,7 @@ class FileExplorer extends Component {
   }
 
   render() {
+    const { files } = this.props
     const { index } = this.state
     return (
       <FileExplorerWrapper>
@@ -90,7 +90,7 @@ class FileExplorer extends Component {
         <p>{'.. (up a dir)'}</p>
         <p>{'</rskull/com/dotelar-web'}</p>
         <ul>
-          {this.files.map((v, i) => (
+          {files.map((v, i) => (
             <li key={v}>
               <Link
                 to={v === 'home' ? '/' : `/${v}`}

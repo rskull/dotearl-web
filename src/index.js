@@ -30,14 +30,18 @@ const MainContainer = styled.div`
 `
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.files = ['home', 'works', 'skill', 'contact']
+  }
+
   render() {
-    const pathname = location.pathname.replace('/', '')
     return (
       <Router>
         <MainContainer>
           <TitleBar />
           <VimContainer>
-            <FileExplorer />
+            <FileExplorer files={this.files} />
             <Route exact path="/" component={Home} />
             <Route path="/works" component={Works} />
             <Route path="/skill" component={Skill} />
@@ -50,7 +54,7 @@ class App extends Component {
                 {'command  7,13,1=5D'}
               </div>
               <div>
-                {'1:188 [markdown] home.md [utf-8][unix]'}
+                {'1:188 [markdown] xxxx.md [utf-8][unix]'}
               </div>
             </StatusBar>
             <CommandLine />
