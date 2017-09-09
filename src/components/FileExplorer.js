@@ -50,7 +50,7 @@ const FileExplorerWrapper = styled.div`
     &:before {
       display: inline-block;
       color: #d65d1a;
-      content: '★'; 
+      content: '☆'; 
       margin-right: 5px;
       transition: transform .3s linear;
       transform: scale(0.7);
@@ -60,7 +60,7 @@ const FileExplorerWrapper = styled.div`
       background: #303030;
 
       &:before {
-        content: '☆';
+        content: '★';
         transition: transform .3s linear;
         transform: scale(0.7) rotate(180deg);
       }
