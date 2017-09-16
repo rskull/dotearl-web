@@ -43,6 +43,7 @@ class App extends Component {
           <VimContainer>
             <FileExplorer files={this.files} />
             <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
             <Route path="/works" component={Works} />
             <Route path="/skill" component={Skill} />
             <Route path="/contact" component={Contact} />

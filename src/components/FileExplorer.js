@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import keydown, { Keys } from 'react-keydown'
+
+const { ENTER } = Keys
 
 const FileExplorerWrapper = styled.div`
   border: 0 dashed #414344;
@@ -81,11 +85,34 @@ class FileExplorer extends Component {
     this.setState({ index: i })
   }
 
+  @keydown('j')
+  handleMoveBottom() {
+    const fileNum = this.props.files.length - 1
+    const { index } = this.state
+    if (fileNum > index) {
+      this.setState({ index: index + 1 })
+    }
+  }
+
+  @keydown('k')
+  handleMoveTop() {
+    const { index } = this.state
+    if (index !== 0) {
+      this.setState({ index: index - 1 })
+    }
+  }
+
+  @keydown(ENTER)
+  handleEnter() {
+    const hash = `/#/${this.props.files[this.state.index]}`
+    location.href = hash
+  }
+
   render() {
     const { files } = this.props
     const { index } = this.state
     return (
-      <FileExplorerWrapper>
+      <FileExplorerWrapper tabindex="0">
         <p>" Press ? for help</p>
         <p>{'.. (up a dir)'}</p>
         <p>{'</rskull/com/dotelar-web'}</p>
@@ -93,7 +120,7 @@ class FileExplorer extends Component {
           {files.map((v, i) => (
             <li key={v}>
               <Link
-                to={v === 'home' ? '/' : `/${v}`}
+                to={`/${v}`}
                 onClick={() => this.handleClick(i)}
                 className={index === i ? 'active' : ''}
               >{v}.md</Link>
